@@ -16,26 +16,29 @@ canvas.height = window.innerHeight
 
 //------------ All this could change ----------------------------------------------------
 
+
+// draw() works
 const draw = (e) =>{
     // my logic
-    ctx.beginPath()
-    ctx.moveTo(e.clientX,e.clientY)
+    // ctx.beginPath()
     ctx.lineTo(e.clientX,e.clientY)
     ctx.lineCap = 'round'
     ctx.stroke()
+    ctx.moveTo(e.clientX,e.clientY)
     
     console.log(`I'm drawing!`)
     
 }
 
+//  Now it draws when i press mouse left button
 canvas.addEventListener('mousedown', (e) =>{
-    draw(e)
-})
 
-ctx.addEventListener('mousemove', () =>{
-    Draw()
-})
+        canvas.addEventListener('mousemove', (e) =>{
+        draw(e)
 
-ctx.addEventListener('mouseup', () =>{
-    // Stop drawing
+        })
+    })
+
+canvas.addEventListener('mouseup', () =>{
+    
 })
