@@ -15,6 +15,19 @@ canvas.height = window.innerheight
 
 
 //------------ All this could change ----------------------------------------------------
+
+const draw = (e) =>{
+    // my logic
+    ctx.beginPath()
+    ctx.moveTo(50,50)
+    ctx.lineTo(e.clientX,e.clientY)
+    ctx.lineCap = 'round'
+    ctx.stroke()
+    
+    console.log(`I'm drawing!`)
+    
+}
+
 ctx.addEventListener('mousedown', () =>{
     startDraw()
 })
