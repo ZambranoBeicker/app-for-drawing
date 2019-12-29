@@ -30,15 +30,28 @@ const draw = (e) =>{
     
 }
 
-//  Now it draws when i press mouse left button
-canvas.addEventListener('mousedown', (e) =>{
 
-        canvas.addEventListener('mousemove', (e) =>{
-        draw(e)
+/* In this part i make my app to draw only when i press the left button down 
 
-        })
+    Fisrt: I add the addEventListener for the 'mousedown' event.
+           
+    Second:  In the event 'mousedown' i need to create a way 
+             to allow my app to draw only when i move my cursor
+
+    Third:   I need to create a form to stop drawing only when the button will raise*/
+
+const addMouseMove = () =>{                      
+                                                 
+    canvas.addEventListener('mousemove', draw)      
+}                                               
+
+canvas.addEventListener('mousedown', () =>{
+
+         addMouseMove()   
     })
 
+
 canvas.addEventListener('mouseup', () =>{
-    
+    canvas.removeEventListener('mousemove',draw)
+    ctx.beginPath()
 })
