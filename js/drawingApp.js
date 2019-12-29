@@ -3,6 +3,21 @@ const ctx = canvas.getContext('2d')
 const input = document.getElementById('input')
 const more = document.getElementById('more')
 const less = document.getElementById('less')
+const fill = document.getElementById('fill')
+
+// --------- Changing the fill mode --------------------------
+
+let filling = false
+
+const fillLine = ()=>{
+
+    filling = !filling
+}
+
+fill.addEventListener('click', () =>{
+    fillLine()
+    console.log(filling)
+})
 
 // --------- Changing the Width ------------------------------
 
@@ -64,9 +79,14 @@ const draw = (e) =>{
     ctx.lineTo(e.clientX,e.clientY)
     ctx.lineCap = 'round'
     ctx.stroke()
-    ctx.moveTo(e.clientX,e.clientY)
+    // ctx.moveTo(e.clientX,e.clientY)
     ctx.strokeStyle = lineColor
+    ctx.fillStyle = lineColor
     ctx.lineWidth = width
+    
+    if(filling){
+        ctx.fill('evenodd')
+    }
     
     console.log(`I'm drawing!`)
     
