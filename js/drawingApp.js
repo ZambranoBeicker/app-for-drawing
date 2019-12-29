@@ -1,6 +1,39 @@
 const canvas = document.getElementById('canvas')
 const ctx = canvas.getContext('2d')
 const input = document.getElementById('input')
+const more = document.getElementById('more')
+const less = document.getElementById('less')
+
+// --------- Changing the Width ------------------------------
+
+let width = 1
+
+const plusOne = () =>{
+    width += 0.5
+}
+
+const minusOne = () =>{
+    if(width < 1 ){
+        
+        width -= 0
+        console.log(width)
+    } else{
+
+        width -= 0.5
+    }
+
+}
+
+more.addEventListener('click', () => {
+    plusOne()
+    console.log(width)
+})
+
+
+less.addEventListener('click', () => {
+    minusOne()
+    console.log(width)
+})
 
 // --------- Changing the Color ------------------------------
 
@@ -33,6 +66,7 @@ const draw = (e) =>{
     ctx.stroke()
     ctx.moveTo(e.clientX,e.clientY)
     ctx.strokeStyle = lineColor
+    ctx.lineWidth = width
     
     console.log(`I'm drawing!`)
     
